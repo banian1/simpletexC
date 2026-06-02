@@ -27,7 +27,7 @@ jobs:
         run: choco install nsis -y
 
       - name: Build Windows app
-        run: uv run flet build windows -v
+        run: uv run flet build windows -v --yes
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
