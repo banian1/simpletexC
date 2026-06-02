@@ -5,6 +5,10 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for release'
+        required: false
 
 jobs:
   build:
@@ -36,6 +40,8 @@ jobs:
           path: dist/
 
       - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/') || github.event.inputs.tag
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*.exe
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
