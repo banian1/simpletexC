@@ -16,7 +16,16 @@ dev = [
     "flet-cli>=0.85.2",
     "flet-desktop>=0.85.2",
     "flet-web>=0.85.2",
+    "pyinstaller>=6.0",
 ]
+
+[tool.flet.pack]
+add-data = "src/assets:assets"
+product-name = "simpletexC"
+company-name = "simpletexC"
+copyright = "Copyright (C) 2023-2026 by simpletexC"
+bundle = "dir"
+console = false
 
 [tool.flet]
 org = "com.mycompany"
